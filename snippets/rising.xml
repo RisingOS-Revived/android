@@ -62,7 +62,6 @@
   <remove-project path="packages/apps/Backgrounds" />
   <remove-project path="packages/apps/Trebuchet" />
   <remove-project path="packages/apps/LineageParts" />
-  <remove-project path="packages/apps/Jelly" />
   <remove-project path="packages/apps/Settings" />
   <remove-project path="packages/apps/SetupWizard" />
   <remove-project path="packages/apps/Updater" />
