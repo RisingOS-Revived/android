@@ -88,6 +88,7 @@
   <remove-project name="platform/external/arm-optimized-routines" />
   <remove-project name="platform/external/skia" />
   <remove-project name="platform/external/libjpeg-turbo" />
+  <remove-project name="platform/external/dng_sdk" />
   <!-- RisingOS Overrides -->
 
   <!-- Android Manifest  -->
@@ -131,7 +132,8 @@
   <project path="external/arm-optimized-routines" name="android_external_arm-optimized-routines" groups="pdk" remote="rising" />
   <project path="external/skia" name="android_external_skia" groups="pdk" remote="rising" />
   <project path="external/libjpeg-turbo" name="android_external_libjpeg-turbo" groups="pdk" remote="rising" />
-  <project path="external/liblhdc" name="external_liblhdc" remote="rising" />
+  <project path="external/liblhdc" name="android_external_liblhdc" remote="rising" />
+  <project path="external/dng_sdk" name="android_external_dng_sdk" remote="rising" />
   <!-- Frameworks  -->
   <project path="frameworks/av" name="android_frameworks_av" groups="pdk-cw-fs,pdk-fs" remote="rising" />
   <project path="frameworks/base" name="android_frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="rising" />
@@ -163,6 +165,7 @@
   <project path="packages/apps/RisingWalls" name="android_packages_apps_RisingWalls" remote="rising" />
   <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" remote="rising" />
   <project path="packages/modules/Permission" name="android_packages_modules_Permission" remote="rising" />
+  <project path="packages/providers/DownloadProvider" name="android_packages_providers_DownloadProvider" remote="rising" />
   
   <!-- AOSP Packages  -->
   <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" groups="pdk-fs,sysui-studio" remote="rising" />
