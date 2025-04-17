@@ -14,7 +14,7 @@ Getting Started
 ---------------
 **Initialize local repository**
 ```bash
-repo init -u https://github.com/RisingOS-Revived/android -b qpr2 --git-lfs
+repo init -u https://github.com/xiaomi-sm8450-marble/android.git -b qpr2 --git-lfs
 ```
 
 **Sync up with this command:**
