@@ -64,30 +64,6 @@ GMS Flags
 WITH_GMS := true/false
 
 # These flags needs WITH_GMS set to true
-# for more information about core GMS flags, please see vendor/gms/common/common-vendor.mk
-# ships core GMS components that are needed to run GMS environment
-TARGET_CORE_GMS := true/false
-
-# extra add-ons for core GMS builds
-# List of add-ons
-# PRODUCT_PACKAGES += \
-#    Photos \
-#    MarkupGoogle \
-#    LatinIMEGooglePrebuilt \
-#    AiWallpapers \
-#    WallpaperEmojiPrebuilt \
-#    PrebuiltDeskClockGoogle \
-#    CalculatorGooglePrebuilt \
-#    CalendarGooglePrebuilt \
-#    Velvet
-TARGET_CORE_GMS_EXTRAS := true/false
-
-# on the other hand builders can build customize packages by simply defining product packages
-# instead of defining TARGET_CORE_GMS_EXTRAS
-# PRODUCT_PACKAGES += \
-#    add package name here e.g: Velvet \
-#    LatinIMEGooglePrebuilt (if builder prefers gboard)
-
 # Whether to ship pixel launcher and set it as default launcher, false by default
 TARGET_DEFAULT_PIXEL_LAUNCHER := true/false 
 
