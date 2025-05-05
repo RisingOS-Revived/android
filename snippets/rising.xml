@@ -125,5 +125,6 @@
   <project path="vendor/rising" name="android_vendor_rising" remote="rising" />
   <project path="vendor/pixel-style" name="android_vendor_pixel-style" remote="rising" />
   <project path="vendor/pixel-framework" name="android_vendor_pixel-framework" remote="rising" />
+  <project path="vendor/pixeloverlays" name="android_vendor_pixeloverlays" remote="rising" />
   <project path="vendor/microg" name="android_vendor_microg" remote="rising" />
 </manifest>
