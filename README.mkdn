@@ -59,16 +59,26 @@ TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true/false
 GMS Flags
 ---------------
 ```bash
-# GMS build flags, false by default
-# ship with GMS packages, replaces default AOSP packages with Google manufactured packages.
+# GMS build flags, true by default
+# Ship with GMS packages, replaces default AOSP packages with Google manufactured packages.
 WITH_GMS := true/false
+
+# CORE build flags
+WITH_GMS := true
+TARGET_USES_PICO_GAPPS := true
+
+# VANILLA only build flags
+WITH_GMS := false
+
+# VANILLA build with MICROG
+WITH_GMS := false
+WITH_MICROG := true
+
 
 # These flags needs WITH_GMS set to true
 # Whether to ship pixel launcher and set it as default launcher, false by default
 TARGET_DEFAULT_PIXEL_LAUNCHER := true/false 
 
-# Whether to ship prebuilt Google Dialer and Messages, false by default
-TARGET_INCLUDE_GOOGLE_DIALER := true/false
 ```
 
 Building the firmware
