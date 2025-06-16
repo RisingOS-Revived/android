@@ -136,4 +136,5 @@
   <project path="vendor/pixel-style" name="android_vendor_pixel-style" remote="rising" />
   <project path="vendor/pixeloverlays" name="android_vendor_pixeloverlays" remote="rising" />
   <project path="vendor/microg" name="android_vendor_microg" remote="rising" />
+  <project path="vendor/google/faceunlock" name="ionutsandroidbuilds/proprietary_vendor_google_faceunlock" remote="gitlab" revision="15.0" />
 </manifest>
