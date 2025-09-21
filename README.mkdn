@@ -1,36 +1,172 @@
-LineageOS
-===========
+<p align="center">
+<img src="https://github.com/RisingOS-OSS/android/blob/fifteen/risingOS_banner.png">
+</p>
 
-Getting started
+What is RisingOS?
 ---------------
+risingOS is a OpenSource Aftermarket Android Operating System that aims to bring unique and fresh user experience.
 
-To get started with Android/LineageOS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
+Base Firmware
+---------------
+[**LineageOS Android**](https://github.com/LineageOS)
 
-To initialize your local repository using the LineageOS trees, use a command like this:
+Getting Started
+---------------
+**Initialize local repository**
+```bash
+repo init -u https://github.com/RisingOS-Revived/android -b sixteen --git-lfs
 ```
-repo init -u https://github.com/LineageOS/android.git -b lineage-23.0 --git-lfs
+
+**Sync up with this command:**
+```bash
+repo sync -c --no-clone-bundle --optimized-fetch --prune --force-sync -j$(nproc --all)
 ```
-Then to sync up:
+
+Preparing device for building risingOS
+---------------
+**Inherit LineageOS Vendor stuff**
+```bash
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 ```
-repo sync
+
+Building Flags
+---------------
+```bash
+Add the following variables:
+
+# Lunch banner maintainer variable
+RISING_MAINTAINER="Niv"
+
+# Chipset/Maintainer properties (ro.rising.chipset/ro.rising.maintainer) 
+# Set RISING_MAINTAINER for version control 
+# (Optional if builder is setting properties via init_<device>.cpp)
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="Google Tensor 2" \
+    RisingMaintainer="Niv"
+
+RISING_MAINTAINER := Niv
+
+# Disable/enable blur support, false by default
+TARGET_ENABLE_BLUR := true/false
+
+# Whether to ship aperture camera, false by default
+PRODUCT_NO_CAMERA := true/false
+
+# Whether to ship lawnchair launcher, false by default
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true/false 
 ```
-Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device.
 
+GMS Flags
+---------------
+```bash
+# GMS build flags, true by default
+# Ship with GMS packages, replaces default AOSP packages with Google manufactured packages.
+WITH_GMS := true/false
 
-Submitting patches
-------------------
-Patches are always welcome! Please submit your patches via LineageOS Gerrit!
+# CORE build flags
+WITH_GMS := true
+TARGET_USES_PICO_GAPPS := true
 
-Simply follow our guide on [how to submit patches](https://wiki.lineageos.org/submitting-patch-howto.html).
+# VANILLA only build flags
+WITH_GMS := false
 
-To view the status of your and others' patches, visit [LineageOS Gerrit Code Review](https://review.lineageos.org/).
+# VANILLA build with MICROG
+WITH_GMS := false
+WITH_MICROG := true
+```
 
+Building the firmware
+---------------
+**Setting up environment**
+```bash
+. build/envsetup.sh
+```
+**riseup uses all available cores to assign jobs hence making -jX no-op, to utilize -jX use:**
+```bash
+riseup <device> <build-type> 
+```
+```bash
+rise b
+```
 
-Buildbot
---------
+**Building fastboot update package**
+```bash
+riseup <device> <build-type> 
+```
+```bash
+rise fb
+```
 
-All supported devices are built weekly and periodically as changes are committed to ensure the source trees remain buildable.
+**Signed build(Replacing testkey with releasekey for play integrity, certification etc.)**
+```bash
+riseup <device> <build-type> 
+```
+```bash
+# Perform manual key generation
+# 'gk' will include keys from vendor/lineage-priv/keys
+# after generating keys
+gk -s
 
-You can view the current build statuses at [LineageOS Buildkite](https://buildkite.com/lineageos).
+# For more info about gk (generate keys)
+gk -h/--help
 
-Builds produced weekly by the buildbot can be downloaded from [LineageOS downloads](https://download.lineageos.org/).
+# Build the firmware with the preferred method except for 'rise sb'
+rise/rise b/mka bacon etc.
+```
+
+**Building fully signed ota package**
+```bash
+riseup <device> <build-type> 
+```
+```bash
+# 'rise sb' is an attempt to automate LineageOS builds signing.
+# Reference: https://wiki.lineageos.org/signing_builds
+# In case of errors or any other difficulties, avoid using 'rise sb'
+# If the builder wants to simply replace the testkey certificate with the releasekey
+# Please refer to 'Replacing testkey with releasekey'
+# (Automatic generation of keys will be performed if keys do not exist).
+# For manual key generation, please use "gk":
+gk -f (to regenerate replace old keys, rise sb automatically generate keys for full build signing if no keys exists)
+rise sb
+```
+
+**Opting out of signed builds**
+```bash
+riseup <device> <build-type> 
+```
+```bash
+remove_keys # This will remove generated keys so the system will revert back to test keys.
+```
+
+**For more information about the rise build command:**
+```bash
+rise help
+```
+
+Credits
+---------------
+* [**AOSPA**](https://github.com/AOSPA)
+* [**AICP**](https://github.com/AICP)
+* [**Bootleggers**](https://github.com/BootleggersROM)
+* [**crDroid**](https://github.com/crdroidandroid)
+* [**Corvus-AOSP**](https://github.com/Corvus-AOSP)
+* [**Derpfest**](https://github.com/DerpFest-AOSP)
+* [**DivestOS**](https://github.com/Divested-Mobile)
+* [**DotOS**](https://github.com/DotOS)
+* [**Evolution-X**](https://github.com/Evolution-X)
+* [**Flamingo-OS**](https://github.com/Flamingo-OS)
+* [**LeafOS**](https://github.com/LeafOS-Project)
+* [**LineageOS**](https://github.com/LineageOS)
+* [**Octavi-OS**](https://github.com/Octavi-OS)
+* [**Omnirom**](https://github.com/omnirom)
+* [**PixelDust Caf**](https://github.com/pixeldust-project-caf)
+* [**Project-Fluid**](https://github.com/Project-Fluid)
+* [**Project Kaleidoscope**](https://github.com/Project-Kaleidoscope)
+* [**Project Radiant**](https://github.com/ProjectRadiant)
+* **RiceDroid**
+* **risingOS**
+* [**minaripenguin**](https://github.com/minaripenguin)
+* [**AxionAOSP**](https://github.com/AxionAOSP)
+* [**SparkOS**](https://github.com/Spark-Rom)
+* [**StagOS**](https://github.com/StagOS)
+* [**Xdroid-OSS**](https://github.com/xdroid-oss)

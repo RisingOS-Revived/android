@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="evo"
+           fetch="https://github.com/Evolution-X"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <remote  name="evo-codeberg"
+           fetch="https://codeberg.org/Evolution-X"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk,sysui-studio" remote="evo" />
+
+  <!-- Kernel -->
+  <project path="kernel/configs" name="kernel_configs" groups="vts,pdk" remote="evo" />
+
+  <!-- Packages -->
+  <project path="packages/apps/LMOSystemUIClock" name="packages_apps_LMOSystemUIClock" remote="evo" />
+  <project path="packages/apps/SettingsIntelligence" name="packages_apps_SettingsIntelligence" groups="pdk-fs" remote="evo" />
+  <project path="packages/modules/StatsD" name="packages_modules_StatsD" groups="pdk-cw-fs,pdk-fs" remote="evo" />
+
+  <!-- Platform -->
+  <project path="platform_testing" name="platform_testing" groups="pdk-fs,pdk-cw-fs,cts,sysui-studio" remote="evo" />
+
+  <!-- System -->
+  <project path="system/apex" name="system_apex" groups="pdk" remote="evo" />
+  <project path="system/bpf" name="system_bpf" groups="pdk" remote="evo" />
+  <project path="system/libhwbinder" name="system_libhwbinder" remote="evo" />
+
+  <!-- Vendor -->
+  <project path="vendor/gms" name="vendor_gms" remote="evo-codeberg" clone-depth="1" />
+</manifest>
