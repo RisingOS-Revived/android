@@ -7,8 +7,8 @@
            sync-j="4"
            revision="refs/heads/bka" />
 
-  <remote  name="evo-codeberg"
-           fetch="https://codeberg.org/Evolution-X"
+  <remote  name="evo-git"
+           fetch="https://git.evolution-x.org/EvoX"
            sync-c="true"
            sync-j="4"
            revision="refs/heads/bka" />
@@ -33,5 +33,5 @@
   <project path="system/libhwbinder" name="system_libhwbinder" remote="evo" />
 
   <!-- Vendor -->
-  <project path="vendor/gms" name="vendor_gms" remote="evo-codeberg" clone-depth="1" />
+  <project path="vendor/gms" name="vendor_gms" remote="evo-git" clone-depth="1" />
 </manifest>
