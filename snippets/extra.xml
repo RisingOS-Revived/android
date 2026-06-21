@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="evo"
+           fetch="https://github.com/Evolution-X"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/cnb" />
+
+  <!-- Hardware -->
+  <project path="hardware/google/pixel" name="hardware_google_pixel" groups="generic_fs,pixel,pdk-gs-arm,pdk-gs-imgtec,pdk-desktop" remote="evo" />
+  <project path="hardware/lineage/compat" name="hardware_lineage_compat" remote="evo" />
+
+  <!-- Kernel -->
+  <project path="kernel/configs" name="kernel_configs" groups="vts,pdk" remote="evo" />
+
+  <!-- Libcore -->
+  <project path="libcore" name="libcore" groups="pdk,sysui-studio" remote="evo" />
+
+  <!-- Packages -->
+  <project path="packages/apps/Stk" name="packages_apps_Stk" groups="apps_stk,pdk-fs" remote="evo" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="evo" />
+  <project path="packages/providers/MediaProvider" name="packages_providers_MediaProvider" groups="pdk-cw-fs,pdk-fs" remote="evo" />  
+  <project path="packages/services/AxQuickLook" name="packages_services_AxQuickLook" remote="evo" />
+
+  <!-- System -->
+  <project path="system/fs/fs_mgr" name="system_fs_fs_mgr" groups="pdk" remote="evo" />
+  <project path="system/libhwbinder" name="system_libhwbinder" groups="pdk" remote="evo" />
+  <project path="system/media" name="system_media" groups="pdk" remote="evo" />
+  <project path="system/memory/libdmabufheap" name="system_memory_libdmabufheap" groups="pdk" remote="evo" />
+  <project path="system/memory/libmeminfo" name="system_memory_libmeminfo" groups="pdk" remote="evo" />
+  <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="evo" />
+  <project path="system/vold" name="system_vold" groups="pdk" remote="evo" />
+
+  <!-- Vendor -->
+  <project path="vendor/gms" name="vendor_gms" remote="evo" clone-depth="1" />
+  <project path="vendor/gms-mosey" name="vendor_gms-mosey" remote="evo" />
+</manifest>
